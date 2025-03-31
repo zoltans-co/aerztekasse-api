@@ -1,5 +1,8 @@
 # Aerztekasse Backend developer Engineer - Home Assignmenr Demo
 
+## Swagger
+![Swagger](aerztekasse-api.png)
+
 ## Backend URL
 https://api.aerztekasse.zoltans.ch
 
