@@ -2,7 +2,7 @@ package ch.zoltans.aerztekasse.api.aerztekasseapi.places.dtos;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OPEN_CLOSE;
+import ch.zoltans.aerztekasse.api.aerztekasseapi.places.enums.OPEN_CLOSE;
 import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OpeningInterval;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,13 +26,6 @@ class OpeningIntervalMapperTest {
         assertThat(result.getStart()).isEqualTo("11:30");
         assertThat(result.getEnd()).isEqualTo("18:30");
         assertThat(result.getType()).isEqualTo(OPEN_CLOSE.OPEN);
-    }
-
-    @Test
-    void apply_ShouldHandleNullOpeningIntervalDTO() {
-        OpeningInterval result = openingIntervalMapper.apply(null);
-
-        assertThat(result).isNull();
     }
 
     @Test

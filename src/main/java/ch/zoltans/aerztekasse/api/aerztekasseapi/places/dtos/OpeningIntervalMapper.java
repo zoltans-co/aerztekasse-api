@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.function.Function;
 
 @Service
-public class OpeningIntervalDTOMapper
+public class OpeningIntervalMapper
     implements Function<PlaceDTO.OpeningHoursDTO.DaysDTO.OpeningIntervalDTO, OpeningInterval> {
 
 	@Override

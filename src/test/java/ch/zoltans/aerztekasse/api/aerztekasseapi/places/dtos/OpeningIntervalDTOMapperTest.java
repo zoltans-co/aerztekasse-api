@@ -1,13 +1,12 @@
 package ch.zoltans.aerztekasse.api.aerztekasseapi.places.dtos;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OpeningInterval;
-import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OpeningInterval.OPEN_CLOSE;
+import ch.zoltans.aerztekasse.api.aerztekasseapi.places.enums.OPEN_CLOSE;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class OpeningIntervalDTOMapperTest {
@@ -57,8 +56,8 @@ class OpeningIntervalDTOMapperTest {
 
         // Assert
         assertNotNull(result, "The result DTO should not be null");
-        assertEquals(null, result.getStart(), "The start time should be null");
-        assertEquals(null, result.getEnd(), "The end time should be null");
-        assertEquals(null, result.getType(), "The type should be null");
+        assertNull(result.getStart(), "The start time should be null");
+        assertNull(result.getEnd(), "The end time should be null");
+        assertNull(result.getType(), "The type should be null");
     }
 }

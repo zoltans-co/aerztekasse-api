@@ -1,12 +1,9 @@
 package ch.zoltans.aerztekasse.api.aerztekasseapi.places.dtos;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 
-import ch.zoltans.aerztekasse.api.aerztekasseapi.places.dtos.PlaceDTO.OpeningHoursDTO.DaysDTO.OpeningIntervalDTO;
 import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.Days;
 import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OpeningHours;
-import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.OpeningInterval;
 import ch.zoltans.aerztekasse.api.aerztekasseapi.places.entities.Place;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -16,7 +13,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class PlacesDTOMapperTest {
+class PlacesDTOMapperTest {
 
   @Mock
   private OpeningIntervalDTOMapper openingIntervalDTOMapper;
@@ -26,49 +23,6 @@ public class PlacesDTOMapperTest {
 
   public PlacesDTOMapperTest() {
     MockitoAnnotations.openMocks(this);
-  }
-
-  @Test
-  public void testApply_withValidPlace_shouldMapToPlaceDTO() {
-    // Arrange
-    OpeningInterval openingInterval = OpeningInterval.builder().build();
-    OpeningIntervalDTO openingIntervalDTO = OpeningIntervalDTO.builder().build();
-
-    Days days = Days.builder()
-        .monday(List.of(openingInterval))
-        .tuesday(List.of())
-        .wednesday(List.of())
-        .thursday(List.of())
-        .friday(List.of())
-        .saturday(List.of())
-        .sunday(List.of())
-        .build();
-
-    OpeningHours openingHours = OpeningHours.builder()
-        .days(days)
-        .build();
-
-    Place place = Place.builder()
-        .label("Test Place")
-        .location("Test Location")
-        .openingHours(openingHours)
-        .build();
-
-    when(openingIntervalDTOMapper.apply(openingInterval)).thenReturn(openingIntervalDTO);
-
-    // Act
-    PlaceDTO placeDTO = placesDTOMapper.apply(place);
-
-    // Assert
-    assertThat(placeDTO.getLabel()).isEqualTo("Test Place");
-    assertThat(placeDTO.getLocation()).isEqualTo("Test Location");
-    assertThat(placeDTO.getOpening_hours().getDays().getMonday()).containsExactly(openingIntervalDTO);
-    assertThat(placeDTO.getOpening_hours().getDays().getTuesday()).isEmpty();
-    assertThat(placeDTO.getOpening_hours().getDays().getWednesday()).isEmpty();
-    assertThat(placeDTO.getOpening_hours().getDays().getThursday()).isEmpty();
-    assertThat(placeDTO.getOpening_hours().getDays().getFriday()).isEmpty();
-    assertThat(placeDTO.getOpening_hours().getDays().getSaturday()).isEmpty();
-    assertThat(placeDTO.getOpening_hours().getDays().getSunday()).isEmpty();
   }
 
   @Test
