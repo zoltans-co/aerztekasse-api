@@ -2,7 +2,7 @@
 
 ### Build and push the api image to docker hub in one command
 ````bash
-docker buildx build --push --platform linux/amd64 -t zoltansco/aerztekasse:aerztekasse-api-2025.03.30 -f Dockerfile .
+docker buildx build --push --platform linux/amd64 -t zoltansco/aerztekasse:aerztekasse-api-2025.04.02 -f Dockerfile .
 ````
 
 ### MySQL only
