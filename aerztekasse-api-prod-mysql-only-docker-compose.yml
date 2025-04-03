@@ -12,9 +12,9 @@ services:
       MYSQL_PASSWORD: 'aerztekasse'
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
-      - '3400:3306'
+      - '3306:3306'
     expose:
-      - '3400'
+      - '3306'
     volumes:
       - aerztekasse-mysql-volume:/var/lib/mysql
 volumes:
